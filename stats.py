@@ -10,6 +10,9 @@ class Stats:
         self.game_active = True
         self.game_over = False
 
+        self.reached_pole = False
+        self.flag_reach_bot = False
+
         self.at_underground = False
         self.at_main_level = True
         self.underground_level = False
@@ -17,6 +20,7 @@ class Stats:
         self.return_main_level = False
 
         self.score = 0
+        self.coins = 0
         self.time = 400
         self.lives = 3
         self.timer = 0
@@ -52,6 +56,7 @@ class Stats:
 
     def reset_stats(self):
         self.score = 0
+        self.coins = 0
         self.time = 400
         self.lives = 3
         self.game_over = False

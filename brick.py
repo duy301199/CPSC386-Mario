@@ -11,7 +11,7 @@ class Brick(Sprite):
         self.screen = screen
         self.settings = settings
         self.block_type = block_type
-        self.swap_brick = False
+        self.change_brick = False
 
         self.size_brick = Brick.BRICK_SIZE
         self.brick = "images/Red_Brick.png"

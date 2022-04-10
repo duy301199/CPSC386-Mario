@@ -1,14 +1,18 @@
 from brick import Brick
+from upper import UPPER
+
 class Map:
 
-    BRICK_SIZE = 50
+    BRICK_SIZE = 40
 
-    def __init__(self, screen, settings, bricks, mario, ground, stats, invisible_bricks):
+    def __init__(self, screen, settings, bricks, pipes, mario, ground, upper, stats, invisible_bricks):
         self.screen = screen
         self.settings = settings
         self.stats = stats
+        self.pipes = pipes
         self.bricks = bricks
         self.mario = mario
+        self.upper = upper
         self.invisible_bricks = invisible_bricks
         self.ground = ground
         self.main_level = 'images/level_loc.txt'
@@ -18,7 +22,7 @@ class Map:
             with open(self.main_level, 'r') as o:
                 self.rows = o.readlines()
                 if self.stats.return_main_level:
-                    self.mario.rect.x = 7000
+                    self.mario.rect.x = 7210
                     self.mario.rect.y = 500
         if self.stats.at_underground:
             with open(self.underground_level, 'r') as o:
@@ -28,6 +32,7 @@ class Map:
 
 
         self.brick = None
+        self.coin = None
         self.deltax = self.deltay = Map.BRICK_SIZE
 
 
@@ -76,3 +81,7 @@ class Map:
         self.brick.rect.x = x
         self.brick.rect.y = y
         self.invisible_bricks.add(self.brick)
+
+    def create_coin(self, x,y,num):
+        self.coin = UPPER(self.screen, self.settings, self.bricks, x,y,num)
+        self.upper.add(self.coin)

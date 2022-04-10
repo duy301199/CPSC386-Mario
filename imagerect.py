@@ -6,7 +6,7 @@ class ImageRect:
         self.height = height
         self.width = width
 
-        self.image = pg.Image((self.height, self.width))
+        self.image = pg.Surface((self.height, self.width))
         sprite_sheet = pg.image.load('images/allsprites.png')
 
         self.image.blit(sprite_sheet, (0,0), (60, 0, self.height, self.width))
