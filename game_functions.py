@@ -9,7 +9,7 @@ def update(screen, mario, settings, level, pipes, display, stats, bricks, upper,
         mario.moving_right()
         stats.timer += 1
     if stats.timer >= 100:
-        mario.stop()
+        mario.stoping()
     mario.update(stats,level)
     flags.update()
     upper.update()
